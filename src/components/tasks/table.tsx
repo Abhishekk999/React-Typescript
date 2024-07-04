@@ -1,4 +1,5 @@
-import  DataTable  from "../ui/table";
+import DataTable from "../ui/table";
+import "./tasks.css";
 
 function Table() {
   const data = [

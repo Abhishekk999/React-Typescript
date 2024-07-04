@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./tasks.css";
 
 const API_URL = "https://api.exchangerate-api.com/v4/latest/USD";
 

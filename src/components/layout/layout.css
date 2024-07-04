@@ -1,6 +1,7 @@
 .dashboard {
   font-family: Arial, sans-serif;
-  height: 92vh;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
 }
 
 .auth {
