@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import CurrencyConverter from "./components/tasks/currency-converter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Card from "./components/tasks/card";
+import Table from "./components/tasks/table";
+import AuthLayout from "./components/layout/auth";
+import DashboardLayout from "./components/layout/dashboard";
+import Login from "./components/auth/login";
+import SignUp from "./components/auth/signUp";
+import ForgotPassword from "./components/auth/forgot-password";
+import ResetPassword from "./components/auth/reset-password";
+import ThemeProvider from "./context/themeContext";
+import TicTacToe from "./components/tic-tac-toe";
+import "react-bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="dashboard" element={<DashboardLayout />}>
+              <Route
+                path="currency-converter"
+                element={<CurrencyConverter />}
+              />
+              <Route path="list" element={<Table />} />
+              <Route path="card" element={<Card />} />
+              <Route path="game" element={<TicTacToe />} />
+            </Route>
+            <Route path="" element={<AuthLayout />}>
+              <Route path="" element={<Login />} />
+              <Route path="sign-up" element={<SignUp />} />
+              <Route path="forgot-password" element={<ForgotPassword />} />
+              <Route path="reset-password" element={<ResetPassword />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </div>
   );
 }
