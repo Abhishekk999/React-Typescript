@@ -33,7 +33,7 @@ const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     },
     {
       name: "blue",
-      primary: "#3498db",
+      primary: "#024950",
       secondary: "#2980b9",
       textColor: "#fff",
     },

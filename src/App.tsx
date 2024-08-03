@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import CurrencyConverter from "./components/tasks/currency-converter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,7 +11,7 @@ import ForgotPassword from "./components/auth/forgot-password";
 import ResetPassword from "./components/auth/reset-password";
 import ThemeProvider from "./context/themeContext";
 import TicTacToe from "./components/tic-tac-toe";
-import "react-bootstrap";
+import Dashboard from "./components/dashboard";
 
 function App() {
   return (
@@ -21,6 +20,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="dashboard" element={<DashboardLayout />}>
+              <Route path="" element={<Dashboard />} />
               <Route
                 path="currency-converter"
                 element={<CurrencyConverter />}

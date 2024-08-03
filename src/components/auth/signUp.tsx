@@ -3,8 +3,6 @@ import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import "./auth.css";
-import { Form, FormGroup } from "react-bootstrap";
 
 type SignUpFormInputs = {
   email: string;
@@ -65,51 +63,88 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="auth-container">
-      <h2 className="form-heading text-center">Sign Up</h2>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormGroup className="form-group mb-3">
-          <Form.Label>Email</Form.Label>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <form
+        className="w-[23rem] max-w-md bg-white p-8 pt-4 rounded-lg shadow-md"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        {" "}
+        <h2 className="text-center text-2xl font-bold mb-6">Sign Up</h2>
+        <div className="mb-4">
+          <label className="block text-gray-700">Email</label>
           <Controller
             name="email"
             control={control}
-            render={({ field }) => <Form.Control type="email" {...field} />}
+            render={({ field }) => (
+              <input
+                type="email"
+                {...field}
+                className={`w-full px-3 py-2 border ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              />
+            )}
           />
-          <Form.Control.Feedback type="invalid">
-            {errors.email?.message}
-          </Form.Control.Feedback>
-        </FormGroup>
-        <Form.Group className="form-group mb-3">
-          <Form.Label>Password</Form.Label>
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700">Password</label>
           <Controller
             name="password"
             control={control}
-            render={({ field }) => <Form.Control type="password" {...field} />}
+            render={({ field }) => (
+              <input
+                type="password"
+                {...field}
+                className={`w-full px-3 py-2 border ${
+                  errors.password ? "border-red-500" : "border-gray-300"
+                } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              />
+            )}
           />
-          <Form.Control.Feedback type="invalid">
-            {errors.password?.message}
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="form-group mb-3">
-          <Form.Label>Confirm Password</Form.Label>
+          {errors.password && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.password.message}
+            </p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700">Confirm Password</label>
           <Controller
             name="confirmPassword"
             control={control}
-            render={({ field }) => <Form.Control type="password" {...field} />}
+            render={({ field }) => (
+              <input
+                type="password"
+                {...field}
+                className={`w-full px-3 py-2 border ${
+                  errors.confirmPassword ? "border-red-500" : "border-gray-300"
+                } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              />
+            )}
           />
-          <Form.Control.Feedback type="invalid">
-            {errors.confirmPassword?.message}
-          </Form.Control.Feedback>
-        </Form.Group>
-        <div className="text-center mb-2">
-          <button className="button" type="submit">
+          {errors.confirmPassword && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.confirmPassword.message}
+            </p>
+          )}
+        </div>
+        <div className="text-center mb-4">
+          <button
+            type="submit"
+            className="w-full bg-gray-600 text-white py-2 rounded-md hover:bg-gray-700"
+          >
             Sign Up
           </button>
         </div>
-        <div className="text-center mb-3">
-          <Link to="/">Already have an account? Login </Link>
+        <div className="text-center">
+          <Link to="/" className="text-gray-600 hover:underline">
+            Already have an account? Login
+          </Link>
         </div>
-      </Form>
+      </form>
     </div>
   );
 };

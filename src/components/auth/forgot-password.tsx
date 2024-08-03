@@ -3,7 +3,6 @@ import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import "./auth.css";
 
 type ForgotPasswordFormInputs = {
   email: string;

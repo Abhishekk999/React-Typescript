@@ -36,7 +36,7 @@ const Header: React.FC<{}> = () => {
           {themes.map((theme, index) => (
             <div
               className="color_box"
-              style={{ backgroundColor: theme.secondary }}
+              style={{ backgroundColor: theme.primary }}
               key={index}
               onClick={() => setTheme(index)}
             ></div>
