@@ -65,7 +65,7 @@ const Login: React.FC = () => {
       >
         <h2 className="text-center text-2xl font-bold mb-6">Login</h2>
         <div className="mb-4">
-          <label className="block text-gray-700">Email</label>
+          <label className="block text-gray-700 mb-0.5 ">Email</label>
           <Controller
             name="email"
             control={control}
@@ -84,7 +84,7 @@ const Login: React.FC = () => {
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Password</label>
+          <label className="block text-gray-700 mb-0.5">Password</label>
           <Controller
             name="password"
             control={control}

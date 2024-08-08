@@ -1,4 +1,4 @@
-class Utility {
+class CommonUtility {
   static buildNestedStructure(flatArray: Array<any>) {
     const idMapping = flatArray.reduce((acc, el, i) => {
       acc[el.id] = i;
@@ -41,4 +41,5 @@ class Utility {
     }
   }
 }
-export default Utility;
+
+export default CommonUtility;

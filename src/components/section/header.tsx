@@ -21,7 +21,7 @@ const Header: React.FC<{}> = () => {
   return (
     <div className="header">
       <nav>
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/dashboard/card">Card</Link>
           </li>
@@ -31,7 +31,7 @@ const Header: React.FC<{}> = () => {
           <li>
             <Link to="/dashboard/list">Table</Link>
           </li>
-        </ul>
+        </ul> */}
         <div className="color_body">
           {themes.map((theme, index) => (
             <div
